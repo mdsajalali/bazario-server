@@ -3,6 +3,8 @@ require("dotenv/config");
 const express = require("express");
 const { connectDB } = require("./config/db.js");
 const categoryRoutes = require("./routes/category.route.js");
+const authRoutes = require("./routes/auth.route.js");
+const { verifyToken, isAdmin } = require("./middleware/auth.middleware.js");
 
 // app config
 const app = express();
@@ -19,7 +21,8 @@ app.get("/", (req, res) => {
   res.send("API Working");
 });
 
-app.use("/api/v1/categories", categoryRoutes);
+app.use("/api/v1/categories", verifyToken, isAdmin, categoryRoutes);
+app.use("/api/v1/auth", authRoutes);
 
 app.get("/api/v1", (req, res) => {
   res.send("Welcome to bazario server!");
