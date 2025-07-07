@@ -2,6 +2,7 @@ const cors = require("cors");
 require("dotenv/config");
 const express = require("express");
 const { connectDB } = require("./config/db.js");
+const categoryRoutes = require("./routes/category.route.js");
 
 // app config
 const app = express();
@@ -17,6 +18,8 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("API Working");
 });
+
+app.use("/api/v1/categories", categoryRoutes);
 
 app.get("/api/v1", (req, res) => {
   res.send("Welcome to bazario server!");
