@@ -25,8 +25,8 @@ const getBrandById = async (req, res) => {
 
 const createBrand = async (req, res) => {
   try {
-    const { name } = req.body;
-    const brand = new Brand({ name });
+    const { name, image } = req.body;
+    const brand = new Brand({ name, image });
     await brand.save();
     res.status(201).json(brand);
   } catch (err) {
@@ -38,10 +38,10 @@ const createBrand = async (req, res) => {
 
 const updateBrand = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, image } = req.body;
     const brand = await Brand.findByIdAndUpdate(
       req.params.id,
-      { name },
+      { name, image },
       { new: true }
     );
     if (!brand) return res.status(404).json({ error: "Brand not found" });

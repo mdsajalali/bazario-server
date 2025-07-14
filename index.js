@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/categories", verifyToken, isAdmin, categoryRoutes);
-app.use("/api/v1/brand", verifyToken, isAdmin, brandRoutes);
+app.use("/api/v1/brands", verifyToken, isAdmin, brandRoutes);
 app.use("/api/v1/products", verifyToken, isAdmin, productRoutes);
 app.use("/api/v1/orders", verifyToken, isAdmin, orderRoutes);
 app.use("/api/v1/shop", verifyToken, shopRoutes);
