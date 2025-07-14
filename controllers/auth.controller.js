@@ -56,7 +56,7 @@ const login = async (req, res) => {
           { expiresIn: "1d" }
         );
 
-        return res.json({ token, user });
+        return res.json({ token, message: "Login Successfully!", user });
       }
 
       return res.status(400).json({ error: "Email or password incorrect" });

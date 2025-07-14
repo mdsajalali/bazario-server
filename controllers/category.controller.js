@@ -26,8 +26,8 @@ const getCategoryById = async (req, res) => {
 
 const createCategory = async (req, res) => {
   try {
-    const { name } = req.body;
-    const category = new Category({ name });
+    const { name, image } = req.body;
+    const category = new Category({ name, image });
     await category.save();
     res.status(201).json(category.toObject());
   } catch (error) {
