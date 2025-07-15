@@ -40,7 +40,9 @@ const deleteProduct = async (req, res) => {
 
 const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find();
+    const products = await Product.find()
+      .populate("categoryId", "name")
+      .populate("brandId", "name");
     res.status(200).json(products);
   } catch (err) {
     res
@@ -62,4 +64,10 @@ const getProductById = async (req, res) => {
   }
 };
 
-module.exports = {createProduct, updateProduct, deleteProduct, getAllProducts, getProductById}
+module.exports = {
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  getAllProducts,
+  getProductById,
+};
