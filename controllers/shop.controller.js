@@ -58,7 +58,7 @@ const getFilteredProducts = async (req, res) => {
       sortBy = "price",
       sortOrder = -1,
       page = 1,
-      pageSize = 10,
+      pageSize = 6,
     } = req.query;
 
     page = parseInt(page);
