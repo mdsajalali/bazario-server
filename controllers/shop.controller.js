@@ -1,3 +1,4 @@
+const Brand = require("../models/brand.model");
 const Cart = require("../models/cart.model");
 const Category = require("../models/category.model");
 const Order = require("../models/order.model");
@@ -40,7 +41,7 @@ const getCategories = async (req, res) => {
 
 const getBrands = async (req, res) => {
   try {
-    const brands = await Category.find();
+    const brands = await Brand.find();
     res.send(brands);
   } catch (err) {
     res
