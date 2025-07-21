@@ -9,11 +9,40 @@ It includes secure **JWT authentication**, **role-based access control** (admin 
 
 ## 🚀 Tech Stack
 
-- **Node.js** – Runtime environment
-- **Express.js** – Web framework
-- **MongoDB** + **Mongoose** – NoSQL database and ORM
-- **JWT** – Secure token-based authentication
-- **bcrypt** – Password hashing
+- **Node.js** – Runtime environment  
+- **Express.js** – Web framework  
+- **MongoDB** + **Mongoose** – NoSQL database and ODM  
+- **JWT** – Secure token-based authentication  
+- **bcrypt** – Password hashing  
 - **CORS** – Cross-origin resource sharing
 
 ---
+
+## 🔐 Features
+
+- 🔑 User registration & login with JWT
+- 👤 Role-based access control (Admin & Customer)
+- 📦 Product, Category, and Brand Management (CRUD)
+- 🛒 Cart & Wishlist APIs
+- 📃 Order Placement & Management
+- 🌐 RESTful API design
+
+---
+
+## ⚙️ Installation
+
+```bash
+# Clone the repository
+git https://github.com/mdsajalali/bazario-server.git
+
+# Navigate into the directory
+cd bazario-server
+
+# Install dependencies
+npm install
+
+# Create a .env file and configure your environment variables
+cp .env.example .env
+
+# Start the server
+npm start
