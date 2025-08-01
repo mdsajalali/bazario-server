@@ -9,6 +9,7 @@ const brandRoutes = require("./routes/brand.route.js");
 const productRoutes = require("./routes/product.route.js");
 const shopRoutes = require("./routes/shop.route.js");
 const orderRoutes = require("./routes/order.route.js");
+const blogRoutes = require("./routes/blog.route.js")
 
 // app config
 const app = express();
@@ -35,6 +36,7 @@ app.use("/api/v1/categories", verifyToken, isAdmin, categoryRoutes);
 app.use("/api/v1/brands", verifyToken, isAdmin, brandRoutes);
 app.use("/api/v1/products", verifyToken, isAdmin, productRoutes);
 app.use("/api/v1/orders", verifyToken, isAdmin, orderRoutes);
+app.use("/api/v1/blogs", blogRoutes)
 app.use("/api/v1/shop", verifyToken, shopRoutes);
 app.use("/api/v1/auth", authRoutes);
 
