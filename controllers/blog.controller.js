@@ -1,4 +1,30 @@
-const getBlogs = async (req, res) => {
-  console.log("All Blogs");
+const Blog = require("../models/blog.model");
+
+const createBlog = async (req, res) => {
+  try {
+    const blog = req.body;
+    const newBlog = new Blog(blog);
+    await newBlog.save();
+    res.status(201).json({ blog: newBlog });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "Failed to create blog", message: err.message });
+  }
 };
-module.exports = { getBlogs };
+
+const getAllBlogs = async (req, res) => {
+  try {
+    const blogs = await Blog.find().sort({ createdAt: -1 });
+    res.status(200).json(blogs);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "Failed to fetch blogs", message: err.message });
+  }
+};
+
+module.exports = {
+  createBlog,
+  getAllBlogs,
+};
