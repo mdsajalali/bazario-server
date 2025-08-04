@@ -24,7 +24,23 @@ const getAllBlogs = async (req, res) => {
   }
 };
 
+const getSingleBlog = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const blog = await Blog.findById(id);
+    if (!blog) {
+      return res.status(404).json({ error: "Blog not found" });
+    }
+    res.status(200).json(blog);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "Failed to fetch blog", message: err.message });
+  }
+};
+
 module.exports = {
   createBlog,
   getAllBlogs,
+  getSingleBlog,
 };
